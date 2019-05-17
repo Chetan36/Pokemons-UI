@@ -13,7 +13,7 @@ import styles from './styles';
 
 function PokemonCard(props) {
   const { classes } = props;
-  console.log("Card props", props)
+  // console.log("Card props", props)
   return (
     <Card className={classes.card}>
       <CardActionArea>
@@ -34,10 +34,7 @@ function PokemonCard(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
+          Add to bagpack
         </Button>
       </CardActions>
     </Card>

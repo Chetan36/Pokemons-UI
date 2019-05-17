@@ -6,8 +6,7 @@ const styles = {
         textAlign: 'center',
         margin: 10,
         display: 'flex',
-        flexWrap: 'wrap',
-        overflowY: 'auto',
+        flexWrap: 'wrap'
     }
 }
 
