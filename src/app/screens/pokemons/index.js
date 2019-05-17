@@ -19,7 +19,7 @@ class Pokemons extends Component {
     }
 
     render() {
-        console.log('Items value', this.props.items);
+        console.log('Pokémons: ', this.props.pokemons);
         return(
             <div>
                 <HeaderComponent />
