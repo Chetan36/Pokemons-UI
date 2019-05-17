@@ -19,7 +19,7 @@ function SimpleAppBar(props) {
       <AppBar position="static" color="primary">
         <Toolbar>
           <Typography variant="h6" color="inherit">
-            Pokémons
+            Pokémon
           </Typography>
         </Toolbar>
       </AppBar>

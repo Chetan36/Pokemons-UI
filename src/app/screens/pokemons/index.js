@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import HeaderComponent from "../../components/header/index";
+import PokemonCard from "../../components/pokemoncard/index";
 import styles from './styles';
 
 import { connect } from 'react-redux';
@@ -19,13 +20,18 @@ class Pokemons extends Component {
     }
 
     render() {
-        console.log('Pokémons: ', this.props.pokemons);
+        // console.log('Pokémons: ', this.props.pokemons);
         return(
             <div>
                 <HeaderComponent />
-                <div style={styles.textDiv}>
-                    <h1>You are in Pokémons component</h1>
-                </div>
+                {this.props.pokemons.length > 0 &&
+                <div style={styles.pokeDiv}>
+                    {this.props.pokemons.map(poke => {
+                        return(
+                            <PokemonCard key={poke.name} pokemon={poke} />
+                        )
+                    })}
+                </div>}
             </div>
         )
     }
