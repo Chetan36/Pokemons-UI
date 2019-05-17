@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
-    FETCH_POKEMONS, FETCH_POKEMON_BY_ID
+    FETCH_POKEMONS, FETCH_POKEMON_BY_ID,
+    ADD_POKEMON_TO_COMPARISION, ADD_POKEMON_TO_BAGPACK
 } from '../actions/types';
 
 const config = require('../config.json');
@@ -14,7 +15,9 @@ export const fetchPokemons = () => dispatch => {
                 return new Promise((resolve, reject) => {
                     axios.get(poke.url)
                     .then(pokeResp => {
-                        resolve(pokeResp.data);
+                        var pokemon = pokeResp.data;
+                        pokemon["bagpack"] = false;
+                        resolve(pokemon);
                     })
                     .catch(err => {
                         reject(err)
@@ -47,4 +50,19 @@ export const fetchPokemonById = (id) => dispatch => {
     .catch(error => {
         console.log("Error occured", error);
     });
+}
+
+export const addPokemonToComparision = (pokemon) => dispatch => {
+    dispatch({
+        type: ADD_POKEMON_TO_COMPARISION,
+        payload: pokemon
+    })
+}
+
+export const addPokemonToBagpack = (pokemon) => dispatch => {
+    pokemon.bagpack = true;
+    dispatch({
+        type: ADD_POKEMON_TO_BAGPACK,
+        payload: pokemon
+    })
 }
